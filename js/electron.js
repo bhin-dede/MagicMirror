@@ -21,6 +21,9 @@ if (process.env.ELECTRON_ENABLE_GPU !== "1") {
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
+// 펑션키 모듈
+const electronLocalshortcut = require("electron-localshortcut");
+
 /*
  * Keep a global reference of the window object, if you don't, the window will
  * be closed automatically when the JavaScript object is garbage collected.
@@ -91,6 +94,13 @@ function createWindow () {
 		}
 	});
 
+	electronLocalshortcut.register(mainWindow, "F12", () => {
+		mainWindow.webContents.toggleDevTools();
+	});
+
+	electronLocalshortcut.register(mainWindow, "F5", () => {
+		mainWindow.reload();
+	});
 
 	let prefix;
 	if ((config["tls"] !== null && config["tls"]) || config.useHttps) {

@@ -58,6 +58,7 @@
 		"ajv": "^8.17.1",
 		"ansis": "^3.3.2",
 		"console-stamp": "^3.1.2",
+		"electron-localshortcut": "^3.2.1",
 		"envsub": "^4.1.0",
 		"eslint": "^9.11.1",
 		"express": "^4.21.0",
