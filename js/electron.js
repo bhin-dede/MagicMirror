@@ -84,6 +84,14 @@ function createWindow () {
 	 * If config.address is not defined or is an empty string (listening on all interfaces), connect to localhost
 	 */
 
+	// 키 이벤트 리스너 추가
+	mainWindow.webContents.on("before-input-event", (event, input) => {
+		if (input.key === "Escape") {
+			app.quit(); // ESC 키가 눌리면 애플리케이션 종료
+		}
+	});
+
+
 	let prefix;
 	if ((config["tls"] !== null && config["tls"]) || config.useHttps) {
 		prefix = "https://";
